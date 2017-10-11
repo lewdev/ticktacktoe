@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="ticktacktoe" default="build" basedir=".">
+  <!-- set global properties for this build -->
+  <property environment="env" />
+  <property name="app.name" value="ticktacktoe" />
+
+  <property name="dir.closure" location="C:/Users/Owner/apps/closure" />
+  <property name="dir.xampp.app" location="C:/xampp/htdocs/${app.name}" />
+  <property name="dir.xampp.bootstrap" location="${dir.xampp.app}/bootstrap-3.3.7-dist" />
+
+  <target name="build" depends="build-xampp"></target>
+
+  <target name="build-xampp" depends="xampp-copy-all" description="copy to xampp htdocs">
+    <!-- Create the time stamp -->
+    <tstamp />
+  </target>
+
+  <target name="xampp-clean-build" depends="xampp-clean, build-xampp" description="clean build xampp"></target>
+
+  <target name="xampp-clean">
+    <delete dir="${dir.xampp.app}" />
+  </target>
+
+  <target name="xampp-copy-all" depends="xampp-init, compass-compile-sass">
+    <copy todir="${dir.xampp.app}">
+      <fileset dir="${basedir}/public" excludes="**/*.scc,**/*.woff,**/*.ttf" />
+    </copy>
+  </target>
+
+  <target name="xampp-init">
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${dir.xampp.app}" />
+    <mkdir dir="${dir.xampp.app}/css" />
+    <mkdir dir="${dir.xampp.app}/js" />
+  </target>
+
+  <target name="compass-compile-sass" depends="">
+    <exec executable="cmd">
+      <arg value="/c compass compile sass/styles.scss"/>
+    </exec>
+  </target>
+
+  <target name="closure-compile-js" depends="">
+    <exec executable="${dir.closure}/closure.bat" dir=".">
+      <arg value="${basedir}/js_src/**.js" />
+      <arg value="${basedir}/public/js/${app.name}.min.js"/>
+    </exec>
+  </target>
+
+  <!-- <target name="composer require twbs/bootstrap" depends=""> -->
+  <!--   <exec executable="cmd"> -->
+  <!--     <arg value="/c composer require twbs/bootstrap"/> -->
+  <!--   </exec> -->
+  <!-- </target> -->
+</project>

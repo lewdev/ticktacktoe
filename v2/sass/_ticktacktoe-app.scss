@@ -1,0 +1,38 @@
+body, div, th, td, span, a, b, strong, li, label, font, em, legend {
+  font-family: Verdana, sanserif;
+  font-size: 12pt;
+}
+table, td, th {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+div.ttt-grid > table, .ttt-message, .ttt-reset-game-btn, .ttt-player-win-counts {
+  width: 450px;
+  text-align: center;
+  margin: 10px auto;
+  display: block;
+}
+td.ttt-cell {
+  width: 150px;
+  height: 150px;
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 95px;
+  border: 1px solid gray;
+}
+td:hover.ttt-cell {
+  background-color: #CCC;
+}
+tr > td:first-child.ttt-cell {
+  border-left:0;
+}
+tr > td:last-child.ttt-cell {
+  border-right:0;
+}
+tr:first-child > td {
+  border-top:0;
+}
+tr:last-child > td {
+  border-bottom:0;
+}
