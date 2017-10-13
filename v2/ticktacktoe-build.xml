@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="ticktacktoe" default="build" basedir=".">
-  <!-- set global properties for this build -->
   <property environment="env" />
   <property name="app.name" value="ticktacktoe" />
 
   <property name="dir.closure" location="C:/Users/Owner/apps/closure" />
   <property name="dir.xampp.app" location="C:/xampp/htdocs/${app.name}" />
-  <property name="dir.xampp.bootstrap" location="${dir.xampp.app}/bootstrap-3.3.7-dist" />
 
   <target name="build" depends="build-xampp"></target>
 
@@ -47,9 +45,9 @@
     </exec>
   </target>
 
-  <!-- <target name="composer require twbs/bootstrap" depends=""> -->
-  <!--   <exec executable="cmd"> -->
-  <!--     <arg value="/c composer require twbs/bootstrap"/> -->
-  <!--   </exec> -->
-  <!-- </target> -->
+  <target name="open-in-chrome" depends="">
+    <exec executable="C:/Program Files (x86)/Google/Chrome/Application/chrome.exe">
+      <arg value="http://localhost/${app.name}" />
+    </exec>
+  </target>
 </project>
