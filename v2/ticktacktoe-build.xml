@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="ticktacktoe" default="build" basedir=".">
+<project name="ticktacktoe2" default="build" basedir=".">
   <property environment="env" />
   <property name="app.name" value="ticktacktoe" />
 
   <property name="dir.closure" location="C:/Users/Owner/apps/closure" />
   <property name="dir.xampp.app" location="C:/xampp/htdocs/${app.name}" />
 
-  <target name="build" depends="build-xampp"></target>
+  <target name="build" depends="closure-compile-js, build-xampp"></target>
 
-  <target name="build-xampp" depends="xampp-copy-all" description="copy to xampp htdocs">
+  <!--<target name="build-all" depends="closure-compile-js, build-xampp" description="compile js and build"></target>-->
+
+  <target name="clean-build" depends="xampp-clean-build"></target>
+
+  <target name="build-xampp" depends="xampp-copy-all">
     <!-- Create the time stamp -->
     <tstamp />
   </target>
@@ -38,14 +42,14 @@
     </exec>
   </target>
 
-  <target name="closure-compile-js" depends="">
-    <exec executable="${dir.closure}/closure.bat" dir=".">
-      <arg value="${basedir}/js_src/**.js" />
-      <arg value="${basedir}/public/js/${app.name}.min.js"/>
-    </exec>
+  <target name="closure-compile-js" depends="" description="Compile all JavaScript assets.">
+    <exec executable="${basedir}/../compiler/compile.bat" dir="." />
+    <copy todir="${dir.xampp.app}/js_debug">
+      <fileset dir="${basedir}/src" />
+    </copy>
   </target>
 
-  <target name="open-in-chrome" depends="">
+  <target name="open-in-chrome" depends="" description="asdf">
     <exec executable="C:/Program Files (x86)/Google/Chrome/Application/chrome.exe">
       <arg value="http://localhost/${app.name}" />
     </exec>

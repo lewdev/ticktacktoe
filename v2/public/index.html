@@ -1,38 +1,75 @@
 <html>
 <head>
   <title>Tick Tack Toe Ultimate</title>
-  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">-->
+  <link rel="stylesheet" href="css/bootstrap-v4.0.0.min.css"></link>
+
+  <link href="css/styles.css" rel="stylesheet" type="text/css"></link>
 </head>
 <body>
   <div id="ttt-main">
-    <div id="message" class="ttt-message"></div>
-
-    <div class="ttt-grid">
-      <table>
-        <tr>
-          <td id="cell1" class="ttt-cell"></td>
-          <td id="cell2" class="ttt-cell"></td>
-          <td id="cell3" class="ttt-cell"></td>
-        </tr>
-        <tr>
-          <td id="cell4" class="ttt-cell"></td>
-          <td id="cell5" class="ttt-cell"></td>
-          <td id="cell6" class="ttt-cell"></td>
-        </tr>
-        <tr>
-          <td id="cell7" class="ttt-cell"></td>
-          <td id="cell8" class="ttt-cell"></td>
-          <td id="cell9" class="ttt-cell"></td>
-        </tr>
-      </table>
+    <div id="startView" class="ttt-view">
+      <h1 id="gameTitle" class="retroshadow">Tick-Tack-Toe Ultimate</h1>
+      <button type="button" class="btn btn-primary btn-lg" onclick="playGame(); return false;">
+        <i class="fas fa-play"></i>
+      </button>
+      <div class="like-container">
+        <div class="like-cnt unchecked" id="like-cnt">
+          <i class="like-btn material-icons">thumb_up</i>
+        </div>
+      </div>
     </div>
 
-    <input id="resetButton" type="button" value="Reset game" class="ttt-reset-game-btn" onclick="resetGame();" />
-
-    <div id="playerWinCounts" class="ttt-player-win-counts">
-      
+    <div id="gameView" class="ttt-view">
+      <button type="button" class="btn btn-default btn-lg" onclick="restartConfirm(); return false;">
+        <i class="fas fa-redo"></i>
+      </button>
+      <button type="button" class="btn btn-default btn-lg" onclick="configGame(); return false;">
+        <i class="fas fa-cog"></i>
+      </button>
     </div>
+
+    <div id="userSelectView" class="ttt-view"></div>
+
+    <div id="restartView" class="ttt-view">
+      Restart game?
+      <button type="button" class="btn btn-success btn-lg" onclick="restartGame(); return false;">
+        <i class="fas fa-check"></i>
+      </button>
+      <button type="button" class="btn btn-danger btn-lg" onclick="restartCancel(); return false;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <div id="configView" class="ttt-view">
+      configurations
+      <button type="button" class="btn btn-danger btn-lg" onclick="back(); return false;">
+        <i class="fas fa-reply"></i>
+      </button>
+    </div>
+
+    <div id="endView" class="ttt-view">
+      Winner: {}<br/>
+      Stats: {}<br/>
+      Play Again?<br/>
+      <button type="button" class="btn btn-primary btn-lg" onclick="playGame(); return false;">
+        <i class="fas fa-play"></i>
+      </button>
+    </div>
+
+    <div id="console" class="ttt-view"></div>
   </div>
+
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script> -->
+  <script defer src="js/fontawesome-v5.0.8.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+  <script defer src="js/jquery-3.2.1.slim.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script> -->
+  <script defer src="js/popper.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+  <script defer src="js/bootstrap-v4.0.0.min.js"></script>
   <script type="text/javascript" src="js/ticktacktoe.min.js"></script>
 </body>
 </html>

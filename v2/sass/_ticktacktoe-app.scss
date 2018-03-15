@@ -6,15 +6,24 @@ table, td, th {
   border-spacing: 0;
   border-collapse: collapse;
 }
-div.ttt-grid > table, .ttt-message, .ttt-reset-game-btn, .ttt-player-win-counts {
-  width: 450px;
-  text-align: center;
+div.ttt-view {
   margin: 10px auto;
+  display: none;
+  text-align: center;
+}
+/** ------------------- TTT Cell Related stuff ------------------- */
+div.ttt-grid > table, .ttt-message, .ttt-player-win-counts {
+  text-align: center;
   display: block;
 }
+div.ttt-view#console {
+  display: inline-block;
+}
+
+/** ------------------- TTT Cell Related stuff ------------------- */
 td.ttt-cell {
-  width: 150px;
-  height: 150px;
+  width: 50px;
+  height: 50px;
   margin: 0;
   text-align: center;
   vertical-align: middle;
@@ -35,4 +44,25 @@ tr:first-child > td {
 }
 tr:last-child > td {
   border-bottom:0;
+}
+/** ------------------- Front Title Screen font ------------------- */
+h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  /*
+  font-size: 92px;
+  padding: 30px 40px;
+  */
+  font-size: 5em;
+  padding: 1em 2em;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  &.retroshadow {
+    color: #2c2c2c;
+    //background-color: #d5d5d5;
+    letter-spacing: .05em;
+    text-shadow: 
+      4px 4px 0px #d5d5d5, 
+      7px 7px 0px rgba(0, 0, 0, 0.2);
+  }
 }
